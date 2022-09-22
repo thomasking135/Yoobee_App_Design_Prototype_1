@@ -12,6 +12,9 @@
   </ul>
     <hr>
     <h1>Welcome</h1>
+    <div v-if="login">
+    <p class="center">You are logged in to Hap!</p>
+    </div>
     <event-form @add:event="addEvent"/>
     <event-table
       :events="events"
@@ -49,7 +52,8 @@ export default {
 },
   data() {
     return {
-      events: []
+      events: [],
+      login: true,
     };
   },
 
@@ -131,6 +135,10 @@ button:active,
 button:focus {
   background: #32a95d;
   border: 1px solid #32a95d;
+}
+
+.center{
+  text-align: center;
 }
 
 .small-container {
