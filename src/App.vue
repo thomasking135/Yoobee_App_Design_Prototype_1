@@ -1,4 +1,7 @@
 /* eslint-disable */
+/*Primary Vue platform page*/ 
+
+/*Created by Justina Ho, Keegan Difty and Thomas King*/ 
 <template>
   <div id="app" class="small-container">
     <a href="#app"><img src="./assets/logo.png" alt="logo"/></a>
@@ -28,9 +31,10 @@
   <br>
   <img class="costume" src="./assets/costumeParty.jpg" alt="logo"/>
   <br>
+  
+  <button @click="increment">Like Us? {{ count }}</button>
 
-
-<a class="text-align" href="#app">HOME</a>
+<span class="float"><a class="text-align" href="#app">HOME</a></span>
   </div>
   
   
@@ -54,6 +58,7 @@ export default {
     return {
       events: [],
       login: true,
+      count: 0
     };
   },
 
@@ -62,6 +67,9 @@ export default {
   },
 
   methods: {
+    increment() {
+      this.count++;
+    },
     async getEvents() {
       try {
         const response = await fetch(
@@ -139,6 +147,10 @@ button:focus {
 
 .center{
   text-align: center;
+}
+
+.float {
+  float: right;
 }
 
 .small-container {
